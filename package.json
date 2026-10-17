@@ -1,0 +1,11 @@
+{
+  "name": "plori-review-demo",
+  "version": "0.1.0",
+  "description": "A small pagination helper used to try the Plori pull-request review.",
+  "type": "module",
+  "main": "src/paginate.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
