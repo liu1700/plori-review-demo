@@ -1,0 +1,11 @@
+name: Plori review
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  review:
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    uses: plori-ai/agent-action/.github/workflows/review.yml@v1
