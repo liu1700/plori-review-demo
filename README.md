@@ -20,6 +20,19 @@ paginate(["a", "b", "c", "d", "e", "f"], 2, 3);
 Pages are numbered from 1. `hasNext` is `true` only when a later page has
 items, so the last page always returns `hasNext: false`, also when it is full.
 
+To read the page number from a request, use `parsePage`:
+
+```js
+import { paginate, parsePage } from "./src/paginate.js";
+
+const params = new URL(request.url).searchParams;
+const page = parsePage(params.get("page")); // missing or empty -> 1
+paginate(rows, page, 20);
+```
+
+`parsePage` throws a `RangeError` for values such as `"0"`, `"-1"`, `"2.5"`
+or `"abc"`.
+
 ## Tests
 
 Node.js 20 or later, no dependencies:
