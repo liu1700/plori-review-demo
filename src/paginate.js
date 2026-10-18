@@ -17,9 +17,10 @@ export function paginate(items, page, pageSize) {
     throw new RangeError("page must be a positive integer");
   }
   const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
-  const start = (page - 1) * pageSize;
+  // Index of the first item on the requested page.
+  const firstIndex = (page - 1) * pageSize;
   return {
-    items: items.slice(start, start + pageSize),
+    items: items.slice(firstIndex, firstIndex + pageSize),
     page,
     totalPages,
     hasNext: page < totalPages,
